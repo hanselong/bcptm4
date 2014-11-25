@@ -11,6 +11,8 @@ namespace ShoppingCartDemo
             int subtotal = 0;
 
             // Display items for purchasing
+            //TODO: allow users to continue to purchase items until exit
+
             DisplayPurchaseOptions();
             userInput = GetPurchaseOption();
             subtotal = userInput;
@@ -47,13 +49,24 @@ namespace ShoppingCartDemo
             int userInput = 0;
             try
             {
-                userInput = Convert.ToInt16(Console.ReadLine());
+                userInput = Convert.ToInt16(Console.ReadLine()); 
             }
             catch
             {
                 Console.WriteLine("Please enter a whole number!");
+                return 0;
             }
-            return userInput;
+            
+            if (userInput >= 1 && userInput <= 3)
+                return userInput;
+            else
+            {
+                Console.WriteLine("Please enter a selection between 1 and 3!");
+                return 0;
+            }
+    
+            
+            
         }
     }
 }
